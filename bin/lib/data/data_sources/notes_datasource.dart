@@ -1,8 +1,8 @@
 import '../models/notes_model.dart';
 
 abstract class NotesDataSource {
-  Future<NotesResponseModel> createNotes(String title, String description);
+  Future<void> createNotes(NotesModel notes);
   Future<NotesResponseModel> getNotes();
-  Future<NotesResponseModel> deleteNotes(int id);
-  Future<NotesResponseModel> updateNotes(int id, String title, String description);
+  Future<void> deleteNotes(int id);
+  Future<void> updateNotes(NotesModel notes);
 }

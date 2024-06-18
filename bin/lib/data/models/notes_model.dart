@@ -27,11 +27,13 @@ class NotesResponseModel {
 class NotesModel {
   String? title;
   String? description;
+  int? id;
 
-  NotesModel({this.title, this.description});
+  NotesModel({this.title, this.description, required id});
 
   factory NotesModel.fromJson(Map<String, dynamic> json) {
     return NotesModel(
+      id: json['id'] ?? 0,
       title: json['title'] ?? "",
       description: json['description'] ?? "",
     );
@@ -39,6 +41,7 @@ class NotesModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id ?? 0,
       'title': title ?? "",
       'description': description ?? "",
     };
